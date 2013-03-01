@@ -1,0 +1,13 @@
+<% if !@ingredients.blank? %>
+<form>
+  <ul>
+  <% for ingredient in @ingredients %>
+	<li><label><input type="checkbox"><%= ingredient.name %></label></li>
+  <% end %>
+  </ul>
+</form>
+<% else %>
+  No ingredients
+<% end %>
+
+<%= link_to "back to recipe", :back %>

@@ -1,0 +1,31 @@
+<div itemscope itemtype="http://schema.org/Recipe">
+
+	<h1 itemprop="name"><%= @recipe.name %></h1>
+	<meta itemprop="datePublished" content="<%= @recipe.created_at %>">
+
+	<img itemprop="image" src="<%= @recipe.image %>">
+
+	<div itemprop="description">
+		<%= @recipe.description %>
+	</div>
+
+	Prep Time: <meta itemprop="prepTime" content="<%= Duration.new(:minutes => @recipe.prep_time).iso8601 %>"><%= @recipe.prep_time %>
+  	Cook time: <meta itemprop="cookTime" content="<%= Duration.new(:minutes => @recipe.cook_time).iso8601 %>"><%= @recipe.cook_time %>
+  	Servings: <span itemprop="recipeYield"><%= @recipe.serves %></span>
+
+
+	<% if !@recipe.ingredients.blank? %>
+	<h2>Ingredients</h2>
+	  <% for ingredient in @recipe.ingredients %>
+	    <ol>
+	    	<li><span itemprop="ingredients"><%= "#{ingredient.quatity} #{ingredient.name}" %></span>
+	    </ol>
+	  <% end %>
+	<% end %>
+
+	<h2>Preperation</h2>
+	<div itemprop="recipeInstructions">
+		<%= @recipe.method %>
+	</div>
+
+</div>
