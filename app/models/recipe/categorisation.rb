@@ -12,5 +12,4 @@ module Recipe
       self.category
     end
   end
-
 end

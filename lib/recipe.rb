@@ -12,8 +12,6 @@ module Recipe
   def self.config(&block)
     @@config ||= Recipe::Engine::Configuration.new
 
-    # @@config.engine_routing = true
-
     yield @@config if block
 
     return @@config

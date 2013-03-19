@@ -12,5 +12,4 @@ module Recipe
       "#{quanity} - #{name}"
     end
   end
-
 end

@@ -83,6 +83,5 @@ module Recipe
     def to_s
       name
     end
-
   end
 end
