@@ -40,7 +40,6 @@ module Recipe
     validates_presence_of           :order,
                                     :method,
                                     :name,
-                                    :ingredients,
                                     :description,
                                     :prep_time,
                                     :cook_time

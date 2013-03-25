@@ -10,6 +10,9 @@ module Recipe
   mattr_accessor :engine_routing
   @@engine_routing = true
 
+  mattr_accessor :engine_active_admin
+  @@engine_active_admin = true
+
   class Engine < Rails::Engine
     # TODO isolate_namespace Recipe
 
