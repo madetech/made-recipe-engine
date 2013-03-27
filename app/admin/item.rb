@@ -6,6 +6,10 @@ if defined?(ActiveAdmin) and Recipe.config.engine_active_admin
 
     menu :label => "Recipes", :parent => "Recipes", :priority => 1
 
+    action_item :only => :show do
+      link_to "View Recipe Item on site", recipe_item.get_canonical_url
+    end
+
     controller do
       cache_sweeper Recipe.config.recipe_item_sweeper if Recipe.config.recipe_item_sweeper
       defaults :finder => :find_by_url
