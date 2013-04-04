@@ -28,7 +28,7 @@ if defined?(ActiveAdmin) and Recipe.config.engine_active_admin
         f.input     :order
       end
 
-      f.buttons
+      f.actions
     end
 
     index do

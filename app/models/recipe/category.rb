@@ -2,6 +2,12 @@ require 'stringex'
 
 module Recipe
   class Category < ActiveRecord::Base
+    if Recipe.config.engine_routing
+      include Recipe::Engine.routes.url_helpers
+    else
+      include Rails.application.routes.url_helpers
+    end
+
     self.table_name = "recipe_categories"
 
     attr_accessible                   :image,
@@ -33,6 +39,10 @@ module Recipe
 
     def self.with_recipes
       where(:id => Recipe::Categorisation.select(:category_id).uniq)
+    end
+
+    def get_canonical_url
+      recipe_category_path(self)
     end
 
     def to_param

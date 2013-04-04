@@ -56,7 +56,7 @@ if defined?(ActiveAdmin) and Recipe.config.engine_active_admin
                     :hint => 'display order'
       end
 
-      f.buttons
+      f.actions
     end
 
     index do
