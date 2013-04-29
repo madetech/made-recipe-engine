@@ -7,11 +7,11 @@ require "recipe/version"
 Gem::Specification.new do |s|
   s.name        = "recipe"
   s.version     = Recipe::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Product."
-  s.description = "TODO: Description of Product."
+  s.authors     = ["Seb Ashton"]
+  s.email       = ["seb@madebymade.co.uk"]
+  s.homepage    = "http://www.madebymade.co.uk/"
+  s.summary     = "Recipes engine."
+  s.description = "Rails engine that provides the functionality required to add recipes to a site"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
