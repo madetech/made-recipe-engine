@@ -28,13 +28,14 @@ module Recipe
                                     :cook_time,
                                     :serves,
                                     :ingredient_ids,
-                                    :ingredients_attributes
+                                    :ingredients_attributes,
+                                    :video
 
     has_attached_file               :image,
                                     :styles => {
-                                      :large => ["500x500>", :jpg],
-                                      :small => ["250x250>", :jpg],
-                                      :thumb => ["70x70>", :jpg]
+                                      :main => Recipe.config.main_item_image_size,
+                                      :secondary => Recipe.config.main_item_image_size,
+                                      :thumb => Recipe.config.main_item_image_size
                                     }
 
     validates_presence_of           :order,

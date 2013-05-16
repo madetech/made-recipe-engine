@@ -13,6 +13,15 @@ module Recipe
   mattr_accessor :engine_active_admin
   @@engine_active_admin = true
 
+  mattr_accessor :main_item_image_size
+  @@main_item_image_size = "466x377#"
+
+  mattr_accessor :secondary_item_image_size
+  @@secondary_item_image_size = "231x150#"
+
+  mattr_accessor :item_thumb_size
+  @@item_thumb_size = "70x70#"
+
   class Engine < Rails::Engine
     # TODO isolate_namespace Recipe
 
