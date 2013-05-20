@@ -10,6 +10,12 @@ module Recipe
 
     self.table_name = "recipe_items"
 
+    SKILL_LEVELS = [
+      ["Easy", "easy"],
+      ["Moderate", "moderate"],
+      ["Hard", "hard"]
+    ]
+
     has_many                        :categorisations
     has_many                        :categories, :through => :categorisations
     accepts_nested_attributes_for   :categorisations, :allow_destroy => true
@@ -27,6 +33,7 @@ module Recipe
                                     :prep_time,
                                     :cook_time,
                                     :serves,
+                                    :skill_level,
                                     :ingredient_ids,
                                     :ingredients_attributes,
                                     :video
@@ -48,6 +55,11 @@ module Recipe
     validates_uniqueness_of         :name
 
     validates_attachment_presence   :image
+
+    validates                       :skill_level, :inclusion => {
+                                                  :in => SKILL_LEVELS.flatten,
+                                                  :message => I18n.t('common.form_validation.skill_level')
+                                                }
 
     acts_as_url                     :name
 

@@ -52,6 +52,10 @@ if defined?(ActiveAdmin) and Recipe.config.engine_active_admin
                     :label => 'Servings',
                     :hint => 'number of people the recipe feeds'
 
+        f.input     :skill_level,
+                    :as => :select,
+                    :collection => Recipe::Item::SKILL_LEVELS
+
         f.input     :order,
                     :hint => 'display order'
       end
