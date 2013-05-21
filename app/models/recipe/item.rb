@@ -10,12 +10,6 @@ module Recipe
 
     self.table_name = "recipe_items"
 
-    SKILL_LEVELS = [
-      ["Easy", "easy"],
-      ["Moderate", "moderate"],
-      ["Hard", "hard"]
-    ]
-
     has_many                        :categorisations
     has_many                        :categories, :through => :categorisations
     accepts_nested_attributes_for   :categorisations, :allow_destroy => true
@@ -57,7 +51,7 @@ module Recipe
     validates_attachment_presence   :image
 
     validates                       :skill_level, :inclusion => {
-                                                  :in => SKILL_LEVELS.flatten,
+                                                  :in => Recipe.config.skill_levels.flatten,
                                                   :message => I18n.t('common.form_validation.skill_level')
                                                 }
 

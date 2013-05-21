@@ -22,6 +22,13 @@ module Recipe
   mattr_accessor :item_thumb_size
   @@item_thumb_size = "70x70#"
 
+  mattr_accessor :skill_levels
+  @@skill_levels = [
+      ["Easy", "easy"],
+      ["Moderate", "moderate"],
+      ["Hard", "hard"]
+    ]
+
   class Engine < Rails::Engine
     # TODO isolate_namespace Recipe
 
