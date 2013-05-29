@@ -2,3 +2,4 @@ en:
   common:
     form_validation:
       skill_level: "%{value} is not a valid skill level"
+      title_invalid: "%{value} is not a valid title"

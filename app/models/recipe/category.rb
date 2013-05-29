@@ -24,8 +24,8 @@ module Recipe
     has_attached_file                 :image,
                                       :styles => {
                                         :main => Recipe.config.main_item_image_size,
-                                        :secondary => Recipe.config.main_item_image_size,
-                                        :thumb => Recipe.config.main_item_image_size
+                                        :secondary => Recipe.config.secondary_item_image_size,
+                                        :thumb => Recipe.config.item_thumb_size
                                       }
 
     validates_presence_of             :order,

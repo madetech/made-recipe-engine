@@ -27,5 +27,22 @@ module Recipe
       render 'recipe_shopping_list', :layout => 'base'
     end
 
+    def recipe_submit
+      @submission = Recipe::Submission.new
+    end
+
+    def recipe_submission
+      @submission = Recipe::Submission.new(params[:recipe_submission])
+
+      if !@submission.save
+        render :recipe_submission
+      else
+        redirect_to :action => :recipe_submission_thanks
+      end
+    end
+
+    def recipe_submission_thanks
+    end
+
   end
 end
