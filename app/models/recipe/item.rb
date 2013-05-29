@@ -1,4 +1,5 @@
 require 'stringex'
+require 'i18n'
 
 module Recipe
   class Item < ActiveRecord::Base
@@ -44,7 +45,8 @@ module Recipe
                                     :name,
                                     :description,
                                     :prep_time,
-                                    :cook_time
+                                    :cook_time,
+                                    :skill_level
 
     validates_uniqueness_of         :name
 
