@@ -1,5 +1,3 @@
-require 'i18n'
-
 module Recipe
   class Submission < ActiveRecord::Base
     self.table_name = "recipe_submissions"
@@ -16,7 +14,8 @@ module Recipe
                                     :cook_time,
                                     :serves,
                                     :ingredients,
-                                    :method
+                                    :method,
+                                    :created_at
 
     has_attached_file               :image,
                                     :styles => {
