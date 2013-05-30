@@ -23,8 +23,7 @@ module Recipe
                                       :thumb => Recipe.config.item_thumb_size
                                     }
 
-    validates_presence_of           :title,
-                                    :first_name,
+    validates_presence_of           :first_name,
                                     :last_name,
                                     :city,
                                     :email,
