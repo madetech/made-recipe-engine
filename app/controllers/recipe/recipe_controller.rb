@@ -2,6 +2,8 @@ module Recipe
   class RecipeController < Recipe::ApplicationController
     require "duration"
     layout 'application'
+    helper Recipe::ApplicationHelper::FormHelper
+
 
     def index
       @categories = Category.with_recipes
