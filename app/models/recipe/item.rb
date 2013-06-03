@@ -61,6 +61,10 @@ module Recipe
 
     default_scope                   :order => '`order` ASC'
 
+    def total_time
+      self.prep_time + self.cook_time
+    end
+
     def in_category(category_slug)
       begin
         category = Category.find_by_url!(category_slug)
@@ -76,12 +80,6 @@ module Recipe
 
     def get_shopping_list_url
       recipe_shopping_list_path(self.categories.first, self)
-    end
-
-    def get_related_category_recipes(category_id, num)
-      recipes_in_category = Recipe::Categorisation.where(:category_id => category_id).map(&:item_id)
-      recipes_in_category.delete(self.id)
-      RecipeItem.where(:id => recipes_in_category).limit(num)
     end
 
     def to_param

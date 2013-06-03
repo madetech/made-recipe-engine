@@ -37,10 +37,6 @@ module Recipe
     default_scope                     :order => '`order` ASC'
     acts_as_url                       :name
 
-    def self.with_recipes
-      where(:id => Recipe::Categorisation.select(:category_id).uniq)
-    end
-
     def get_canonical_url
       recipe_category_path(self)
     end

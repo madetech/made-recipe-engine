@@ -46,5 +46,10 @@ module Recipe
     def recipe_submission_thanks
     end
 
+    def get_related_category_recipes(category_id, num)
+      recipes_in_category = Recipe::Categorisation.where(:category_id => category_id).map(&:item_id)
+      recipes_in_category.delete(self.id)
+      Recipe::Item.where(:id => recipes_in_category).limit(num)
+    end
   end
 end
