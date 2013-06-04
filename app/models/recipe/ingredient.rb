@@ -9,7 +9,7 @@ module Recipe
     belongs_to                    :item
 
     def to_s
-      "#{quanity} - #{name}"
+      "#{quantity} - #{name}"
     end
   end
 end
