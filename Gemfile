@@ -2,9 +2,10 @@ source "http://rubygems.org"
 gemspec
 
 gem "jquery-rails"
-gem "paperclip",                 '~> 3.0'
-gem 'stringex',                  '~> 1.5.1'
-gem "ruby-duration",             '~> 2.1.4'
+gem 'numbers_in_words',         '0.2.0'
+gem "paperclip",                '~> 3.0'
+gem 'stringex',                 '~> 1.5.1'
+gem "ruby-duration",            '~> 2.1.4'
 
 group :test do
   gem 'brakeman'
