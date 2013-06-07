@@ -16,11 +16,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "jquery-rails"
+  s.add_dependency "numbers_in_words", "0.2.0"
   s.add_dependency "paperclip", "~> 3.0"
+  s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "stringex", "~> 1.5.1"
   s.add_dependency "ruby-duration", "~> 2.1.4"
-  s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
