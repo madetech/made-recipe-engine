@@ -30,7 +30,7 @@ module Recipe
     ]
 
   class Engine < Rails::Engine
-    # TODO isolate_namespace Recipe
+    isolate_namespace Recipe
 
     initializer :recipe do
       ActiveAdmin.application.load_paths.unshift Dir[Recipe::Engine.root.join('app', 'admin')] if defined?(ActiveAdmin)

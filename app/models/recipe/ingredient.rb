@@ -4,7 +4,8 @@ module Recipe
 
     attr_accessible               :item_id,
                                   :name,
-                                  :quantity
+                                  :quantity,
+                                  :link
 
     belongs_to                    :item
 

@@ -32,6 +32,8 @@ if defined?(ActiveAdmin) and Recipe.config.engine_active_admin
                               :hint => 'eg. 10g'
           f_ingredient.input  :name,
                               :label => 'Ingredient'
+          f_ingredient.input  :link,
+                              :label => 'Link'
         end
       end
 
