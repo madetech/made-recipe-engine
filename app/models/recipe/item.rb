@@ -61,6 +61,11 @@ module Recipe
 
     default_scope                   :order => '`order` ASC'
 
+    def skill_level_human
+      skill_level = Recipe.config.skill_levels.select { |item| item[1] == self.skill_level }
+      skill_level.first[0] if skill_level.length > 0
+    end
+
     def total_time
       self.prep_time + self.cook_time
     end
