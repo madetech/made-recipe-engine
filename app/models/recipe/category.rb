@@ -18,7 +18,7 @@ module Recipe
                                       :item_ids
 
     has_many                          :categorisations
-    has_many                          :items, :through => :categorisations, :order => '`order` ASC'
+    has_many                          :items, :through => :categorisations
     accepts_nested_attributes_for     :categorisations
 
     has_attached_file                 :image,
