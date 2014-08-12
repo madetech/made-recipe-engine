@@ -34,19 +34,15 @@ module Recipe
                                     :video
 
     has_attached_file               :image,
-                                    :styles => {
-                                      :main => Recipe.config.main_item_image_size,
-                                      :secondary => Recipe.config.secondary_item_image_size,
-                                      :thumb => Recipe.config.item_thumb_size
-                                    }
+                                    :styles => Recipe.config.item_image_styles
 
-    validates_presence_of           :order,
-                                    :method,
-                                    :name,
-                                    :description,
-                                    :prep_time,
-                                    :cook_time,
-                                    :skill_level
+    validates_presence_of           :order
+    validates_presence_of           :name
+    validates_presence_of           :description
+    validates_presence_of           :method, if: Proc.new { |i| i.requires_method? }
+    validates_presence_of           :prep_time, if: Proc.new { |i| i.requires_prep_time? }
+    validates_presence_of           :cook_time, if: Proc.new { |i| i.requires_cook_time? }
+    validates_presence_of           :skill_level, if: Proc.new { |i| i.requires_skill_level? }
 
     validates_uniqueness_of         :name
 
@@ -55,7 +51,7 @@ module Recipe
     validates                       :skill_level, :inclusion => {
                                                   :in => Recipe.config.skill_levels.flatten,
                                                   :message => I18n.t('common.form_validation.skill_level')
-                                                }
+                                                }, if: Proc.new { |i| i.requires_skill_level? }
 
     acts_as_url                     :name
 
@@ -93,6 +89,22 @@ module Recipe
 
     def to_s
       name
+    end
+
+    def requires_method?
+      true
+    end
+
+    def requires_prep_time?
+      true
+    end
+
+    def requires_cook_time?
+      true
+    end
+
+    def requires_skill_level?
+      true
     end
   end
 end

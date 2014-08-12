@@ -18,10 +18,7 @@ module Recipe
                                     :created_at
 
     has_attached_file               :image,
-                                    :styles => {
-                                      :main => Recipe.config.main_item_image_size,
-                                      :thumb => Recipe.config.item_thumb_size
-                                    }
+                                    :styles => Recipe.config.item_image_styles
 
     validates_presence_of           :first_name,
                                     :last_name,

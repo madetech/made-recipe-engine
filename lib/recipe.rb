@@ -13,14 +13,11 @@ module Recipe
   mattr_accessor :engine_active_admin
   @@engine_active_admin = true
 
-  mattr_accessor :main_item_image_size
-  @@main_item_image_size = "466x377#"
+  mattr_accessor :item_image_styles
+  @@item_image_styles = false
 
-  mattr_accessor :secondary_item_image_size
-  @@secondary_item_image_size = "231x150#"
-
-  mattr_accessor :item_thumb_size
-  @@item_thumb_size = "70x70#"
+  mattr_accessor :category_image_styles
+  @@category_image_styles = false
 
   mattr_accessor :skill_levels
   @@skill_levels = [
